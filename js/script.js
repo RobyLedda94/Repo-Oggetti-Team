@@ -116,11 +116,15 @@ let mostra_btn = document.getElementById('mostra-membri');
 let aggiungi_btn = document.getElementById('aggiungi-membri');
 
 
-
+// Recupero l'elemento che mostra un messaggio a video
+let msg_team = document.getElementById('msg-team');
 
 
 // Evento al bottone che mostra gli elementi del team
 mostra_btn.addEventListener('click', function () {
+
+    // Quando mostro la lista svuoto il contenuto del messaggio 
+    msg_team.innerText = '';
     // Richiamo la funzione che mostra le card passandole un argomento (array_team)
     mostraCarte(array_team);
 });
@@ -133,14 +137,29 @@ aggiungi_btn.addEventListener('click', function () {
     let ruolo_membro = document.getElementById('ruolo').value;
     let immagine_membro = document.getElementById('immagine').value;
 
-    console.log(nome_membro, ruolo_membro, immagine_membro);
 
     // Richiamo la funzione che aggiunge un nuovo oggetto all'array del team
 
     let nuovo_membro = creaMembro(nome_membro, ruolo_membro, immagine_membro);
 
-    // Push dell nuovo membro nell'array di team
-    array_team.push(nuovo_membro);
+
+    // Rimuovo le classi del messaggio per evitare conflitti
+    msg_team.classList.remove('text-red', 'text-green');
+
+    // Controllo sui dati inseriti dall'utente
+
+    if (nome_membro === '' || ruolo_membro === '' || immagine_membro === '') {
+        msg_team.innerText = 'Prego inserire dati validi !!';
+        msg_team.classList.add('text-red');
+    } else {
+        // Push dell nuovo membro nell'array di team
+        array_team.push(nuovo_membro);
+        msg_team.innerText = 'Nuovo membro aggiunto con successo !!';
+        msg_team.classList.add('text-green');
+    };
+
+
+
 
     console.log(array_team);
 
