@@ -22,7 +22,7 @@ function creaColonna() {
 
 // Funzione per la creazione della card
 function creaCarta(member) { // parametro delle funzione a cui passo un valore reale (argomento)
-    return `<div class="card my-2">
+    return `<div class="card my-2 min-h">
                 <div class="card-img-top">
                     <img src="./img/${member.img}" class="img-fluid" />
                 </div>
@@ -53,6 +53,9 @@ function mostraCarte(cards_array) {
         team_container.appendChild(cols);
     };
 };
+
+
+
 
 
 
@@ -115,7 +118,13 @@ mostra_btn.addEventListener('click', function () {
 
 // Evento al bottone che aggiunge un nuovo elemento al team
 aggiungi_btn.addEventListener('click', function () {
-    console.log(this);
+    // Recupero i campi di input e catturo il valore inserito
+    let nome_membro = document.getElementById('nome').value;
+    let ruolo_membro = document.getElementById('ruolo').value;
+    let immagine_membro = document.getElementById('immagine').value;
+
+    console.log(nome_membro, ruolo_membro, immagine_membro);
+
 });
 
 

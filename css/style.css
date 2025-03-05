@@ -10,3 +10,10 @@ header {
     background-color: rgba(0, 55, 138, 0.788);
     color: white;
 }
+
+
+/* Utility */
+
+.min-h {
+    min-height: 395px;
+}
