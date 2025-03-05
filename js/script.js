@@ -58,7 +58,15 @@ let aggiungi_btn = document.getElementById('aggiungi-membri');
 
 // Evento al bottone che mostra gli elementi del team
 mostra_btn.addEventListener('click', function () {
-    console.log(this);
+    // Ciclo for per iterare su tutti gli elementi dell'array
+    for (let i = 0; i < array_team.length; i++) {
+        // Per ogni iterazione creo un elemento ('div')
+        const col = document.createElement('div');
+        // Assegno all'elemento creato le classi di bootstrap per definire le colonne
+        col.classList.add('col-12', 'col-sm-6', 'col-md-4');
+
+        console.log(col);
+    };
 });
 
 
@@ -66,5 +74,8 @@ mostra_btn.addEventListener('click', function () {
 aggiungi_btn.addEventListener('click', function () {
     console.log(this);
 });
+
+
+
 
 
