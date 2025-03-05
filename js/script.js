@@ -1,3 +1,13 @@
+// Definizione delle funzioni
+
+function showinConsole() {
+    for (let i = 0; i < array_team.length; i++) {
+        console.log(`${array_team[i].name} ${array_team[i].role} ${array_team[i].img}`);
+    }
+};
+
+
+
 // Defnizione array di oggetti per il team
 
 const array_team = [
@@ -32,3 +42,8 @@ const array_team = [
         img: "barbara-ramos-graphic-designer.jpg",
     },
 ];
+
+// Richiamo la funzione che mostra in console l'array team
+showinConsole();
+
+
