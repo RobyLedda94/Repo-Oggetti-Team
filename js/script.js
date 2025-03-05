@@ -22,16 +22,16 @@ function creaColonna() {
 
 // Funzione per la creazione della card
 function creaCarta(member) { // parametro delle funzione a cui passo un valore reale (argomento)
-    return `<div class="card p-2 my-2">
+    return `<div class="card my-2">
                 <div class="card-img-top">
-                    <img>
+                    <img src="./img/${member.img}" class="img-fluid" />
                 </div>
                 <div class="card-body">
-                    <h4>nome</h4>
-                    <p><strong>Ruolo :</strong> </p>
+                    <h4>${member.name}</h4>
+                    <p><strong>Ruolo :</strong> ${member.role}</p>
                 </div>
             </div>`;
-}
+};
 
 
 
