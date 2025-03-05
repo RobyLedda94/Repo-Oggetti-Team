@@ -33,6 +33,27 @@ function creaCarta(member) { // parametro delle funzione a cui passo un valore r
             </div>`;
 };
 
+// Funzione per gestire la visualizazzione delle card
+function mostraCarte(cards_array) {
+    // Recupero il contenitore
+    let team_container = document.getElementById('team-container');
+
+    // Svuoto preventivamente la lista per evitare di ricrearla
+    team_container.innerHTML = '';
+
+    // Ciclo for per iterare su tutti gli elementi dell'array
+    for (let i = 0; i < cards_array.length; i++) {
+        // Richiamo all'interno del ciclo la funzione che crea una colonna
+        let cols = creaColonna();
+
+        // Inietto alle colonne il contenuto (card) richiamando la funzione e passando il valore reale (argomento)
+        cols.innerHTML = creaCarta(cards_array[i]);
+
+        // Appendo il contenuto creato al contenitore
+        team_container.appendChild(cols);
+    };
+};
+
 
 
 // Defnizione array di oggetti per il team
@@ -81,24 +102,14 @@ showinConsole();
 let mostra_btn = document.getElementById('mostra-membri');
 let aggiungi_btn = document.getElementById('aggiungi-membri');
 
-// Contitore
-let team_container = document.getElementById('team-container');
+
 
 
 
 // Evento al bottone che mostra gli elementi del team
 mostra_btn.addEventListener('click', function () {
-    // Ciclo for per iterare su tutti gli elementi dell'array
-    for (let i = 0; i < array_team.length; i++) {
-        // Richiamo all'interno del ciclo la funzione che crea una colonna
-        let cols = creaColonna();
-
-        // Inietto alle colonne il contenuto (card) richiamando la funzione e passando il valore reale (argomento)
-        cols.innerHTML = creaCarta(array_team[i]);
-
-        // Appendo il contenuto creato al contenitore
-        team_container.appendChild(cols);
-    };
+    // Richiamo la funzione che mostra le card passandole un argomento (array_team)
+    mostraCarte(array_team);
 });
 
 
