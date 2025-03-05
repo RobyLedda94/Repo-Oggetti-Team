@@ -26,3 +26,7 @@ header {
 .text-green {
     color: rgb(0, 107, 0);
 }
+
+.text-yellow {
+    color: rgb(136, 136, 0);
+}

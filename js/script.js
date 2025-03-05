@@ -142,27 +142,40 @@ aggiungi_btn.addEventListener('click', function () {
 
     let nuovo_membro = creaMembro(nome_membro, ruolo_membro, immagine_membro);
 
-
     // Rimuovo le classi del messaggio per evitare conflitti
-    msg_team.classList.remove('text-red', 'text-green');
+    msg_team.classList.remove('text-red', 'text-green', 'text-yellow');
 
     // Controllo sui dati inseriti dall'utente
 
     if (nome_membro === '' || ruolo_membro === '' || immagine_membro === '') {
         msg_team.innerText = 'Prego inserire dati validi !!';
         msg_team.classList.add('text-red');
+        return;
+    };
+
+
+    // Variabile flag per evitare di aggiungere lo stesso membro
+    let foun_member = false;
+
+    // Ciclo l'array dei membri
+    for (let i = 0; i < array_team.length; i++) {
+        if (array_team[i].name.toLowerCase() === nome_membro.toLowerCase() && array_team[i].role.toLowerCase() === ruolo_membro.toLowerCase()) {
+            foun_member = true;
+        };
+    };
+
+    if (foun_member) {
+        msg_team.innerText = `Il membro ${nome_membro} è gia presente nel team !!`;
+        msg_team.classList.add('text-yellow');
     } else {
         // Push dell nuovo membro nell'array di team
         array_team.push(nuovo_membro);
         msg_team.innerText = 'Nuovo membro aggiunto con successo !!';
         msg_team.classList.add('text-green');
-    };
-
-
+    }
 
 
     console.log(array_team);
-
 
 });
 
