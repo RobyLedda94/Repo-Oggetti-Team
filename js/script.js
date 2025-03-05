@@ -68,6 +68,9 @@ showinConsole();
 let mostra_btn = document.getElementById('mostra-membri');
 let aggiungi_btn = document.getElementById('aggiungi-membri');
 
+// Contitore
+let team_container = document.getElementById('team-container');
+
 
 
 // Evento al bottone che mostra gli elementi del team
@@ -76,7 +79,13 @@ mostra_btn.addEventListener('click', function () {
     for (let i = 0; i < array_team.length; i++) {
         // Richiamo all'interno del ciclo la funzione che crea una colonna
         let cols = creaColonna();
-        console.log(cols);
+        // Creazione delle card da iniettare all'interno delle colonne
+        cols.innerHTML = `<div class="card p-2 my-2">
+                            <p>immagine</p>
+                            <p>nome</p>
+                            <p>ruolo</p>
+                        </div>`;
+        team_container.appendChild(cols);
     };
 });
 
