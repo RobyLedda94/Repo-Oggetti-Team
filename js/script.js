@@ -1,9 +1,23 @@
 // Definizione delle funzioni
 
+
+// Funzione che mostra in console l'array del mio team
+
 function showinConsole() {
     for (let i = 0; i < array_team.length; i++) {
         console.log(`${array_team[i].name} ${array_team[i].role} ${array_team[i].img}`);
     }
+};
+
+
+// Funzione per creare le colonne del mio layout
+function creaColonna() {
+    // Creazione di un elemento ('div')
+    const col = document.createElement('div');
+    // Assegno all'elemento creato le classi di bootstrap per definire le colonne
+    col.classList.add('col-12', 'col-sm-6', 'col-md-4');
+    // Restituisco la colonna appena creata
+    return col;
 };
 
 
@@ -60,12 +74,9 @@ let aggiungi_btn = document.getElementById('aggiungi-membri');
 mostra_btn.addEventListener('click', function () {
     // Ciclo for per iterare su tutti gli elementi dell'array
     for (let i = 0; i < array_team.length; i++) {
-        // Per ogni iterazione creo un elemento ('div')
-        const col = document.createElement('div');
-        // Assegno all'elemento creato le classi di bootstrap per definire le colonne
-        col.classList.add('col-12', 'col-sm-6', 'col-md-4');
-
-        console.log(col);
+        // Richiamo all'interno del ciclo la funzione che crea una colonna
+        let cols = creaColonna();
+        console.log(cols);
     };
 });
 
