@@ -80,6 +80,18 @@ function datiValidi(nome, ruolo, immagine) {
     return true; // Dati validi
 };
 
+// Funzione che controlla se ci sono membri doppi nel team
+function checkMembro(nome, ruolo) {
+    // Ciclo l'array dei membri
+    for (let i = 0; i < array_team.length; i++) {
+        if (array_team[i].name.toLowerCase() === nome.toLowerCase() && array_team[i].role.toLowerCase() === ruolo.toLowerCase()) {
+            return true; // il membto esiste gia
+        };
+    };
+
+    return false; // il membro non esiste
+};
+
 
 
 
@@ -162,27 +174,19 @@ aggiungi_btn.addEventListener('click', function () {
     // Richiamo la funzione che controlla il dato inserito
     if (!datiValidi(nome_membro, ruolo_membro, immagine_membro)) {
         return;
-    }
-
-
-    // Variabile flag per evitare di aggiungere lo stesso membro
-    let foun_member = false;
-
-    // Ciclo l'array dei membri
-    for (let i = 0; i < array_team.length; i++) {
-        if (array_team[i].name.toLowerCase() === nome_membro.toLowerCase() && array_team[i].role.toLowerCase() === ruolo_membro.toLowerCase()) {
-            foun_member = true;
-        };
     };
 
-    if (foun_member) {
-        msg_team.innerText = `Il membro ${nome_membro} è gia presente nel team !!`;
+
+    // Richiamo la funzione che controlla membri doppi, se risulta true (ci sono doppioni)
+    if (checkMembro(nome_membro, ruolo_membro)) {
+        msg_team.innerText = `Il membro "${nome_membro}" è già presente nel team!`;
         msg_team.classList.add('text-yellow');
     } else {
-        // Push dell nuovo membro nell'array di team
+        // Altrimenti se risulta false aggiungo un nuovo membro
         array_team.push(nuovo_membro);
-        msg_team.innerText = 'Nuovo membro aggiunto con successo !!';
+        msg_team.innerText = `Il membro "${nome_membro}" è stato aggiunto con successo!`;
         msg_team.classList.add('text-green');
+
     }
 
 
