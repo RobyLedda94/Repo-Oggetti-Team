@@ -20,6 +20,19 @@ function creaColonna() {
     return col;
 };
 
+// Funzione per la creazione della card
+function creaCarta(member) { // parametro delle funzione a cui passo un valore reale (argomento)
+    return `<div class="card p-2 my-2">
+                <div class="card-img-top">
+                    <img>
+                </div>
+                <div class="card-body">
+                    <h4>nome</h4>
+                    <p><strong>Ruolo :</strong> </p>
+                </div>
+            </div>`;
+}
+
 
 
 // Defnizione array di oggetti per il team
@@ -79,12 +92,11 @@ mostra_btn.addEventListener('click', function () {
     for (let i = 0; i < array_team.length; i++) {
         // Richiamo all'interno del ciclo la funzione che crea una colonna
         let cols = creaColonna();
-        // Creazione delle card da iniettare all'interno delle colonne
-        cols.innerHTML = `<div class="card p-2 my-2">
-                            <p>immagine</p>
-                            <p>nome</p>
-                            <p>ruolo</p>
-                        </div>`;
+
+        // Inietto alle colonne il contenuto (card) richiamando la funzione e passando il valore reale (argomento)
+        cols.innerHTML = creaCarta(array_team[i]);
+
+        // Appendo il contenuto creato al contenitore
         team_container.appendChild(cols);
     };
 });
