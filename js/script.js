@@ -47,3 +47,24 @@ const array_team = [
 showinConsole();
 
 
+
+// Recupero gli elementi di ancoraggio dal DOM
+
+// Bottoni
+let mostra_btn = document.getElementById('mostra-membri');
+let aggiungi_btn = document.getElementById('aggiungi-membri');
+
+
+
+// Evento al bottone che mostra gli elementi del team
+mostra_btn.addEventListener('click', function () {
+    console.log(this);
+});
+
+
+// Evento al bottone che aggiunge un nuovo elemento al team
+aggiungi_btn.addEventListener('click', function () {
+    console.log(this);
+});
+
+
