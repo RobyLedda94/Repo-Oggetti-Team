@@ -54,7 +54,17 @@ function mostraCarte(cards_array) {
     };
 };
 
+// Funzione per creare un nuovo oggetto per l'array team
 
+function creaMembro(nome, ruolo, immagine) {
+    let object = {
+        name: nome,
+        role: ruolo,
+        img: immagine,
+    };
+
+    return object;
+}
 
 
 
@@ -124,6 +134,16 @@ aggiungi_btn.addEventListener('click', function () {
     let immagine_membro = document.getElementById('immagine').value;
 
     console.log(nome_membro, ruolo_membro, immagine_membro);
+
+    // Richiamo la funzione che aggiunge un nuovo oggetto all'array del team
+
+    let nuovo_membro = creaMembro(nome_membro, ruolo_membro, immagine_membro);
+
+    // Push dell nuovo membro nell'array di team
+    array_team.push(nuovo_membro);
+
+    console.log(array_team);
+
 
 });
 
