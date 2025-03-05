@@ -64,7 +64,21 @@ function creaMembro(nome, ruolo, immagine) {
     };
 
     return object;
-}
+};
+
+// Funzione per validare i dati
+
+function datiValidi(nome, ruolo, immagine) {
+    // Controllo sui dati inseriti dall'utente
+
+    if (nome === '' || ruolo === '' || immagine === '') {
+        msg_team.innerText = 'Prego inserire dati validi !!';
+        msg_team.classList.add('text-red');
+        return false; // Dati non validi
+    };
+
+    return true; // Dati validi
+};
 
 
 
@@ -139,19 +153,16 @@ aggiungi_btn.addEventListener('click', function () {
 
 
     // Richiamo la funzione che aggiunge un nuovo oggetto all'array del team
-
     let nuovo_membro = creaMembro(nome_membro, ruolo_membro, immagine_membro);
 
     // Rimuovo le classi del messaggio per evitare conflitti
     msg_team.classList.remove('text-red', 'text-green', 'text-yellow');
 
-    // Controllo sui dati inseriti dall'utente
 
-    if (nome_membro === '' || ruolo_membro === '' || immagine_membro === '') {
-        msg_team.innerText = 'Prego inserire dati validi !!';
-        msg_team.classList.add('text-red');
+    // Richiamo la funzione che controlla il dato inserito
+    if (!datiValidi(nome_membro, ruolo_membro, immagine_membro)) {
         return;
-    };
+    }
 
 
     // Variabile flag per evitare di aggiungere lo stesso membro
